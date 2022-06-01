@@ -1,0 +1,25 @@
+name: LavaWebApp CICD
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: ACR Login
+        uses: Azure/docker-login@v1
+        with:
+          login-server: lavaacr.azurecr.io
+          username: ${{ secrets.LAVA_ACR_USERNAME }}
+          password: ${{ secrets.LAVA_ACR_PASSWORD }}
+        
+      - name: Build and Push Docker Image
+        run: | 
+          docker build ./Lava.WebAPI -t lavaacr.azurecr.io/lavawebapp:${{ github.run_id }}
+          docker push lavaacr.azurecr.io/samplewebapp:${{ github.run_id }} 
+
+      
