@@ -20,6 +20,6 @@ jobs:
       - name: Build and Push Docker Image
         run: | 
           docker build . -t lavaacr.azurecr.io/lavawebapp:${{ github.run_id }}
-          docker push lavaacr.azurecr.io/samplewebapp:${{ github.run_id }} 
+          docker push lavaacr.azurecr.io/lavawebapp:${{ github.run_id }} 
 
       
