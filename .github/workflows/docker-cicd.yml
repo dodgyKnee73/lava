@@ -25,6 +25,45 @@ jobs:
       - name: Build and Push Docker Image
         run: | 
           docker build . -t ${{ env.DOCKER_REGISTRY_URL }}/lavawebapp:${{ github.run_id }}
-          docker push ${{ env.DOCKER_REGISTRY_URL }}/lavawebapp:${{ github.run_id }} 
-
+          docker push ${{ env.DOCKER_REGISTRY_URL }}/lavawebapp:${{ github.run_id }}
+          
+      - name: Package ARM Template
+        uses: actions/upload-artifact@v2
+        with: 
+          name: arm-templates
+          path: ${{ github.workspace }}/Lava.WebApi/azuredeploy.json
+          retention-days: 5
+        
+  dev: 
+    runs-on: ubuntu-latest
+    
+    needs: build
+    environment: development
+    
+    env:
+      ENVIRONMENT_PREFIX: dev
+      
+      SERVER_FARM_RESOURCE_GROUP_NAME: DEV-ACRCD_RG
+      WEBAPP_LOCATION: uksouth
+      WEBAPP_SKU: Free
+      WEBAPP_SKU_CODE: F1
+      
+      TAG_ENVIRONMENT: DEVELOPMENT
+      
+    steps:
+    
+      - name: Dowload ARM Templates
+        uses: actions/download-artifact@v3
+        with:
+          name: arm-templates
+          
+      - name: "Login via Azure CLI"
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.DEV_SP_CREDENTIALS }}
+          
+      - name: Deploy ARM Template
+        uses: 
+        
+    
       
