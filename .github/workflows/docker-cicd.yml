@@ -6,7 +6,9 @@ on:
     branches: [ main ]
     
 env:
-  DOCKER_REGISTRY_URL: lavaacr.azurecr.io
+  DOCKER_REGISTRY_URL: https://lavaacr.azurecr.io
+  run: echo "HELLO; WORLD!"
+  #run: echo "$env.ENVIRONMENT_PREFIX"
   
 jobs:
   build:
@@ -42,7 +44,6 @@ jobs:
     
     env:
       ENVIRONMENT_PREFIX: dev
-      run: echo "$env.ENVIRONMENT_PREFIX"
       SERVER_FARM_RESOURCE_GROUP_NAME: DEV-ACRCD-RG
       WEBAPP_LOCATION: uksouth
       WEBAPP_SKU: Free
