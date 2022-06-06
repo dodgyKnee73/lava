@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: arm-templates
-          path: ${{ github.workspace }}/Lava.WebApi/azuredeploy.json
+          path: ${{ github.workspace }}/Lava.WebAPI/azuredeploy.json
           retention-days: 5
         
   dev: 
