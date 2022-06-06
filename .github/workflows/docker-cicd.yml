@@ -60,7 +60,7 @@ jobs:
       - name: "Login via Azure CLI"
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.DEV_SP_CREDENTIALS }}
+          creds: ${{ secrets.SP_CREDENTIALS }}
           
       - name: Deploy ARM Template
         uses: azure/arm-deploy@v1
@@ -109,7 +109,7 @@ jobs:
       - name: "Login via Azure CLI"
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.SP_CREDENTIALS }}
 
       - name: Deploy ARM Template
         uses: azure/arm-deploy@v1
