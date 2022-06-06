@@ -66,7 +66,7 @@ jobs:
       - name: Deploy ARM Template
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ env.SERVER_FARM_RESOURCE_GROUP_NAME }}
           deploymentMode: Incremental
           template: azuredeploy.json
