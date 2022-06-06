@@ -42,7 +42,7 @@ jobs:
     
     env:
       ENVIRONMENT_PREFIX: dev
-      
+      run: echo "$env.ENVIRONMENT_PREFIX"
       SERVER_FARM_RESOURCE_GROUP_NAME: DEV-ACRCD-RG
       WEBAPP_LOCATION: uksouth
       WEBAPP_SKU: Free
