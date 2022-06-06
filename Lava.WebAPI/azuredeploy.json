@@ -41,7 +41,8 @@
             "defaultValue": "0"
         },
         "numberOfWorkers": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "1"
         },
         "linuxFxVersion": {
             "type": "string"
