@@ -71,7 +71,7 @@ jobs:
           deploymentMode: Incremental
           template: azuredeploy.json
           parameters: > 
-            subscriptionId="${{ secrets.SUBSCRIPTION_ID }}"
+            subscriptionId="${{ secrets.AZURE_SUBSCRIPTION }}"
             name="${{ env.ENVIRONMENT_PREFIX }}-devops-lavawebapp"
             location=${{ env.WEBAPP_LOCATION }}"
             hostingPlanName="${{ env.ENVIRONMENT_PREFIX }}-asp"
