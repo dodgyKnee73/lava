@@ -25,10 +25,12 @@
             "type": "string"
         },
         "sku": {
-            "type": "string"
+            "type": "string",
+            "defaultValue: "Free"
         },
         "skuCode": {
-            "type": "string"
+            "type": "string",
+            "defaultValue: "F1"
         },
         "workerSize": {
             "type": "string",
@@ -39,8 +41,7 @@
             "defaultValue": "0"
         },
         "numberOfWorkers": {
-            "type": "string",
-            "defaultValue": "1"
+            "type": "string"
         },
         "linuxFxVersion": {
             "type": "string"
