@@ -31,10 +31,12 @@
             "type": "string"
         },
         "workerSize": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "0"
         },
         "workerSizeId": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "0"
         },
         "numberOfWorkers": {
             "type": "string"
