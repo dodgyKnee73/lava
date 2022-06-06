@@ -6,7 +6,7 @@ on:
     branches: [ main ]
     
 env:
-  DOCKER_REGISTRY_URL: https://lavaacr.azurecr.io
+  DOCKER_REGISTRY_URL: lavaacr.azurecr.io
   run: echo "HELLO; WORLD!"
   #run: echo "$env.ENVIRONMENT_PREFIX"
   
