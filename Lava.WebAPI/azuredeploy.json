@@ -22,7 +22,8 @@
             "defaultValue": "false"
         },
         "ftpsState": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "AllAllowed"
         },
         "sku": {
             "type": "string",
