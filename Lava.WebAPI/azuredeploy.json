@@ -20,6 +20,9 @@
         "alwaysOn": {
             "type": "bool"
         },
+        "ftpsState": {
+            "type": "string"
+        },
         "sku": {
             "type": "string"
         },
@@ -48,10 +51,6 @@
             "type": "securestring"
         },
         "dockerRegistryStartupCommand": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "tag_environment": {
             "type": "string"
         }
     },
@@ -62,9 +61,7 @@
             "name": "[parameters('name')]",
             "type": "Microsoft.Web/sites",
             "location": "[parameters('location')]",
-            "tags": {
-                "ENVIRONMENT": "[parameters('tag_environment')]"
-            },
+            "tags": {},
             "dependsOn": [
                 "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
             ],
@@ -91,11 +88,13 @@
                     ],
                     "linuxFxVersion": "[parameters('linuxFxVersion')]",
                     "appCommandLine": "[parameters('dockerRegistryStartupCommand')]",
-                    "alwaysOn": "[parameters('alwaysOn')]"
+                    "alwaysOn": "[parameters('alwaysOn')]",
+                    "ftpsState": "[parameters('ftpsState')]"
                 },
                 "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
                 "clientAffinityEnabled": false,
-                "virtualNetworkSubnetId": null
+                "virtualNetworkSubnetId": null,
+                "httpsOnly": false
             }
         },
         {
@@ -104,9 +103,7 @@
             "type": "Microsoft.Web/serverfarms",
             "location": "[parameters('location')]",
             "kind": "linux",
-            "tags": {
-                "ENVIRONMENT": "[parameters('tag_environment')]"
-            },
+            "tags": {},
             "dependsOn": [],
             "properties": {
                 "name": "[parameters('hostingPlanName')]",
