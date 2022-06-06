@@ -56,7 +56,8 @@
             "type": "securestring"
         },
         "dockerRegistryStartupCommand": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {},
