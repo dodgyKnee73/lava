@@ -73,7 +73,7 @@ jobs:
           parameters: > 
             subscriptionId="${{ secrets.AZURE_SUBSCRIPTION }}"
             name="${{ env.ENVIRONMENT_PREFIX }}-devops-lavawebapp"
-            location=${{ env.WEBAPP_LOCATION }}"
+            location="${{ env.WEBAPP_LOCATION }}"
             hostingPlanName="${{ env.ENVIRONMENT_PREFIX }}-asp"
             serverFarmResourceGroup="${{ env.SERVER_FARM_RESOURCE_GROUP_NAME }}"
             sku="${{ env.WEBAPP_SKU }}"
