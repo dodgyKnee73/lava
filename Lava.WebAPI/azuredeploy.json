@@ -60,6 +60,10 @@
         "dockerRegistryStartupCommand": {
             "type": "string",
             "defaultValue": ""
+        },
+        "tag_environment": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {},
@@ -69,7 +73,9 @@
             "name": "[parameters('name')]",
             "type": "Microsoft.Web/sites",
             "location": "[parameters('location')]",
-            "tags": {},
+            "tags": {
+                "ENVIRONMENT": "[parameters('tag_environment')]"
+            },
             "dependsOn": [
                 "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
             ],
@@ -111,7 +117,9 @@
             "type": "Microsoft.Web/serverfarms",
             "location": "[parameters('location')]",
             "kind": "linux",
-            "tags": {},
+            "tags": {
+                "ENVIRONMENT": "[parameters('tag_environment')]"
+            },            
             "dependsOn": [],
             "properties": {
                 "name": "[parameters('hostingPlanName')]",
