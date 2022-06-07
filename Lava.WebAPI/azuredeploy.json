@@ -19,7 +19,7 @@
         },
         "alwaysOn": {
             "type": "bool",
-            "defaultValue": "false"
+            "defaultValue": false
         },
         "ftpsState": {
             "type": "string",
